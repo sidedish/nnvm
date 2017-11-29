@@ -254,5 +254,21 @@ NNVM_REGISTER_OP(leaky_relu)
 .set_attr<FInferType>("FInferType", ElemwiseType<1, 1>)
 .set_support_level(1);
 
+NNVM_REGISTER_OP(prelu)
+.describe(R"code(p version of a Rectified Linear Unit.
+
+`y = x > 0 ? x : alpha * x`
+
+)code" NNVM_ADD_FILELINE)
+.add_argument("data", "Tensor", "Input data.")
+.add_arguments(LeakyReLUParam::__FIELDS__())
+.set_attr_parser(ParamParser<LeakyReLUParam>)
+.set_attr<FGetAttrDict>("FGetAttrDict", ParamGetAttrDict<LeakyReLUParam>)
+.set_num_inputs(1)
+.set_num_outputs(1)
+.set_attr<FInferShape>("FInferShape", ElemwiseShape<1, 1>)
+.set_attr<FInferType>("FInferType", ElemwiseType<1, 1>)
+.set_support_level(1);
+
 }  // namespace top
 }  // namespace nnvm
