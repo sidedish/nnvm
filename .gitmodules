@@ -6,4 +6,4 @@
 	url = https://github.com/dmlc/dmlc-core
 [submodule "tvm"]
 	path = tvm
-	url = https://github.com/dmlc/tvm
+	url = https://github.com/sidedish/tvm
